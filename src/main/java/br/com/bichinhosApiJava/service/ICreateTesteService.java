@@ -1,6 +1,6 @@
-package br.com.bichinhosApiJava.domain.service;
+package br.com.bichinhosApiJava.service;
 
-import br.com.bichinhosApiJava.domain.entity.TesteEntity;
+import br.com.bichinhosApiJava.entity.TesteEntity;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,4 +10,5 @@ public interface ICreateTesteService {
     List<TesteEntity> getAllUsers();
     Optional<TesteEntity> getUserById(Long id);
     TesteEntity updateUserById(Long id, TesteEntity testeEntity);
+    void deleteUserById(Long id);
 }

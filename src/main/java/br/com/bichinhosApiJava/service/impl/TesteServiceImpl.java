@@ -1,8 +1,8 @@
-package br.com.bichinhosApiJava.domain.service.impl;
+package br.com.bichinhosApiJava.service.impl;
 
-import br.com.bichinhosApiJava.domain.entity.TesteEntity;
-import br.com.bichinhosApiJava.domain.repository.ICreateTestRepository;
-import br.com.bichinhosApiJava.domain.service.ICreateTesteService;
+import br.com.bichinhosApiJava.entity.TesteEntity;
+import br.com.bichinhosApiJava.repository.ICreateTestRepository;
+import br.com.bichinhosApiJava.service.ICreateTesteService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CreateTesteServiceImpl implements ICreateTesteService {
+public class TesteServiceImpl implements ICreateTesteService {
 
     @Autowired
     private ICreateTestRepository iCreateTestRepository;
@@ -44,5 +44,10 @@ public class CreateTesteServiceImpl implements ICreateTesteService {
         existentTesteEntity.setAltura(testeEntity.getAltura());
 
         return this.iCreateTestRepository.save(existentTesteEntity);
+    }
+
+    @Override
+    public void deleteUserById(Long id) {
+        this.iCreateTestRepository.deleteById(id);
     }
 }

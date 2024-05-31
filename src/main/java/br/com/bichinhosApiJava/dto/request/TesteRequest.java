@@ -1,9 +1,11 @@
-package br.com.bichinhosApiJava.api.dto.request;
+package br.com.bichinhosApiJava.dto.request;
 
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
+
 
 @Getter
 @Setter
@@ -14,6 +16,7 @@ public class TesteRequest {
     private String nome;
     @NotBlank
     private int idade;
+    @CPF
     @NotBlank
     private String cpf;
     @NotBlank

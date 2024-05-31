@@ -1,7 +1,7 @@
-package br.com.bichinhosApiJava.domain.repository;
+package br.com.bichinhosApiJava.repository;
 
 
-import br.com.bichinhosApiJava.domain.entity.TesteEntity;
+import br.com.bichinhosApiJava.entity.TesteEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
