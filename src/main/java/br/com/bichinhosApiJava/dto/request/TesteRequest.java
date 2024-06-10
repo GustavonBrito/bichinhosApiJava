@@ -1,7 +1,7 @@
 package br.com.bichinhosApiJava.dto.request;
 
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
@@ -10,13 +10,13 @@ import org.hibernate.validator.constraints.br.CPF;
 @Getter
 @Setter
 public class TesteRequest {
-    @NotBlank
-    private Long id;
+    @Size(min = 5,max = 60, message = "o nome não pode ter menos que 5 caracteres ou mais que 60")
     @NotBlank
     private String nome;
-    @NotBlank
+    @Min(value = 18, message =  "A idade minima é de 18 anos")
+    @NotNull
     private int idade;
-    @CPF
+    @CPF(message = "É necessário a inserção de um CPF valido")
     @NotBlank
     private String cpf;
     @NotBlank

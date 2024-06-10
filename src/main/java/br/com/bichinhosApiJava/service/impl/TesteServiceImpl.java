@@ -36,12 +36,16 @@ public class TesteServiceImpl implements ICreateTesteService {
 
         TesteEntity existentTesteEntity = entityToUpdate.orElseThrow(() ->
         new EntityNotFoundException("Entity with ID " + id + " not found."));
+
         if (testeEntity.getNome() != null){
             existentTesteEntity.setNome(testeEntity.getNome());
         }
-        existentTesteEntity.setCpf(testeEntity.getCpf());
-        existentTesteEntity.setIdade(testeEntity.getIdade());
-        existentTesteEntity.setAltura(testeEntity.getAltura());
+        if (testeEntity.getAltura() != null){
+            existentTesteEntity.setAltura(testeEntity.getAltura());
+        }
+        if (testeEntity.getIdade() != 0){
+            existentTesteEntity.setIdade(testeEntity.getIdade());
+        }
 
         return this.iCreateTestRepository.save(existentTesteEntity);
     }
